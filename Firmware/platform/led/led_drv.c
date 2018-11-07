@@ -10,28 +10,13 @@ typedef struct{
 }led_config_t;
 
 
-#if (TX == 1)
-STATIC led_config_t led_out_array[3] = {
-    {GPIOC, GPIO_Pin_8},	//power led ctrl 2
-    {GPIOC, GPIO_Pin_9},	//power led ctrl 1
-    {GPIOB, GPIO_Pin_9},    //return led
-};
-
-STATIC led_config_t led_config_array[LED_SRC_NUM] = {    
-    {GPIOB, GPIO_Pin_14},
-    {GPIOB, GPIO_Pin_13},
-    {GPIOB, GPIO_Pin_12}, 
-    {GPIOC, GPIO_Pin_5},
-};
-#else
 STATIC led_config_t led_config_array[LED_SRC_NUM] = {
-    //{GPIOC, GPIO_Pin_6},
-    {GPIOB, GPIO_Pin_14},
-    {GPIOB, GPIO_Pin_13},
-    {GPIOB, GPIO_Pin_12},    
+    {LED_1_GPIO, LED_1_PIN},
+    {LED_2_GPIO, LED_2_PIN},
+    {LED_3_GPIO, LED_3_PIN},
+    {LED_4_GPIO, LED_4_PIN}, 
 };
 
-#endif
 /*----------------------------------------------------------------------------*/
 //global functions
 void led_drv_init(void)
